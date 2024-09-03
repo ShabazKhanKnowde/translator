@@ -20,3 +20,6 @@ def translate_to_english(text: str, source_language: str = 'auto') -> str:
 def translate(request: TranslationRequest):
     translated_text = translate_to_english(request.text, request.source_language)
     return {"translated_text": translated_text}
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the translation API!"}
